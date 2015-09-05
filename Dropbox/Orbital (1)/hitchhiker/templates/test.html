@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>jQuery select / dropdown box example</title>
+ 
+
+ 
+</head>
+ 
+<body>
+
+ 
+<h1>jQuery select / dropdown box example</h1>
+ 
+
+</head><body>
+ 
+<select id="country">
+<option value="None">-- Select --</option>
+<option value="China">China</option>
+<option value="United State">United State</option>
+<option value="Malaysia">Malaysia</option>
+</select>
+ 
+<br/>
+<br/>
+<br/>
+ 
+<input type='button' value='Display Selected' id='isSelect'>
+<input type='button' value='Select China' id='selectChina'>
+<input type='button' value='Select US' id='selectUS'>
+<input type='button' value='Select Malaysia' id='selectMalaysia'>
+<input type='button' value='Disable US' id='disableUS'>
+<input type='button' value='Enable US' id='enableUS'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+  $(document).ready(function(){
+ 
+    $("#country").val("China");
+ 
+  });
+</script>
+</body>
+</html>

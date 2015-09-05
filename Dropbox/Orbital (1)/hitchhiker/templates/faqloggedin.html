@@ -1,0 +1,192 @@
+<!-- Nav bar template for logged in -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Hitchhiker</title
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap/css/theme.min.css" rel="stylesheet">
+	<style>
+	  .dropdown:hover .dropdown-menu {
+		display: block;
+	  }
+	  .footer {
+		height: 12em;
+		background-color: #F5F5F5;
+      }
+	</style>
+  </head>
+  
+  <body>
+    <!--facebook share and like button-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1437583166567537";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+    <!--facebook share and like button-->
+	
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" style="font-family: 'Press Start 2P', cursive;">HITCHHIKER</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar">
+		  <ul class="nav navbar-nav">
+			<li><a href="/mainpageuser">Home</a></li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Offers/Requests <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li class="dropdown-header">My Offers</li>
+				<li><a href="/makeoffer">Make New Offer</a></li>
+				<li><a href="/manageoffer">Manage My Offers</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">My Requests</li>
+				<li><a href="/makerequest">Make New Request</a></li>
+				<li><a href="/managerequest">Manage My Requests</a></li>
+			  </ul>
+			</li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Received Offers/Requests <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li class="dropdown-header">Received Offers</li>
+				<li><a href="/searchoffer">Search For Others' Offers</a></li>
+				<li><a href="/managereceivedoffer">Manage Received Offers</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">Received Requests</li>
+				<li><a href="/searchrequest">Search For Others' Requests</a></li>
+				<li><a href="/managereceivedrequest">Manage Received Requests</a></li>
+			  </ul>
+			</li>
+			<li><a href="/aboutus">About Us</a></li>
+			<li class="active"><a href="/faq">FAQs<span class="sr-only">(current)</span></a></li>
+		  </ul>  
+		  <a class="btn btn-danger navbar-right navbar-btn" href="{{ logout }}">Sign Out</a>
+		  <p class="navbar-text navbar-right">&nbsp;</p>
+		  <p class="navbar-text navbar-right">Welcome back, <a href="#" class="navbar-link">{{ user_mail }}</a>!</p>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+  
+	<div class="jumbotron" style="background-image:url(../images/jumbotronbg.jpg)">
+	  <h1 class="text-center" style=" font-family:'Indie Flower', cursive">Your Free Ride is Here!</h1>
+	  <p class="text-center" style="font-family:'Indie Flower', cursive">HitchHiker helps you share rides, make friends and save the environment</p>
+	  <p class="text-center"><a class="btn btn-primary btn-lg" href="/aboutus" role="button">Learn more</a></p>
+	</div>
+	
+	<h1 class="text-center">FAQs</h1>
+    <br/>
+    <br/>
+    
+    <!-- starting the content of this FAQ page-->
+    <div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+		<strong><p class="text-justify">Q: Who are the ones behind HitchHiker?</p></strong>
+		<p class="text-justify">A: We are Team Anonymous from NUS Orbital 2015.
+			You can find information about individual team members by clicking <a href="/aboutus">here</a>.
+		</p>
+		<hr>
+		<strong><p class="text-justify">Q: Do I have to sign up or register before I can use HitchHiker?</p></strong>
+		<p class="text-justify">A: Yes, you will have to login with OpenID before you are able to make offers and requests on HitchHiker. 
+		  We support login using OpenID for Yahoo, Flickr, AOL, Blogspot, Paypal, etc. 
+		  If you are a current student at NUS, you can use https://openid.nus.edu.sg, 
+		  which is the default option provided in the login box when you first visit the HitchHiker website. 
+		  Simply click ‘Submit’ and you will be redirected to a page where you can log in using your NUSNET ID and password.
+		</p>
+		<hr>
+		<strong><p class="text-justify">Q: Are there any fees that I have to pay when I make requests through HitchHiker?</p></strong>
+		<p class="text-justify">A: No. HitchHiker is completely free to use but it is recommended that you split the petrol cost with the driver.</p>
+		<hr>
+		<strong><p class="text-justify">Q: How do I contact the other party who made an offer/request?</p></strong>
+		<p class="text-justify">A: If you find an offer/request that match yours, you will be asked to provide your contact number through HitchHiker. 
+		  The other party will get notified and contact you through the number you provided or the email address you use as your username.
+		</p>
+		<hr>
+		<strong><p class="text-justify">Q: Why am I not able to edit/delete my offer/request in some cases?</p></strong>
+		<p class="text-justify">A: You will not be able to edit/delete your offer/request once you use that offer/request to contact someone. 
+		  If your offer/request has received a request/offer from others, you will not be able to edit/delete it either. 
+		  You will have to personally contact and inform the other party if there are any changes. 
+		  This is to prevent confusion for the other party.
+		</p>
+		<hr>
+		<strong><p class="text-justify">Q: How safe is HitchHiker?</p></strong>
+		<p class="text-justify">A: HitchHiker is a brand new carpooling website based in NUS and most of the users are likely to be current NUS students, 
+		  making it a relatively safe and practical way to meet and make new friends!
+		</p>
+		<hr>
+		<strong><p class="text-justify">Q: I have questions that are not answered here. How do I contact you?</p></strong>
+		<p class="text-justify">A: You can drop us an email <a href ="mailto:nl.chuongthien@gmail.com">here</a>.</p>
+		<hr>
+		<!--- template to copy: <strong><p class="text-justify">Q:</p></strong>
+		<p class="text-justify">A:</p>
+		<hr> !--->
+	  </div>
+	</div>
+	
+    <br/>
+	<br/>
+	<br/>
+	<div class="footer">
+		<div class="row">
+		  <div class ="col-md-3 col-md-offset-2">
+			<h4>© 2015 HitchHiker</h4>
+			<p class="text"> 
+			  <ul>
+				<li><a href ="/aboutus">About us</a></li>
+				<li><a href = "/http://goo.gl/forms/iyRTZBLDYo">Career</a></li>
+				<li><a href ="/faq">FAQ</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Help</h4>
+			<p> 
+			  <ul>
+				<li><a href="mailto:nl.chuongthien@gmail.com">Contact Us</a></li>
+				<li><a href ="https://www.youtube.com/watch?v=Yb2fLgWxOrk">Guide</a></li>
+				<li><a href="#">Terms of Use</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Follow Us</h4>
+			<p>
+			  <a href= "#"></href><img width="24px" height="24px" src="../images/twitter.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/facebook.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/instagram.png"></a>
+			</p>
+			<p><a class="fb-like" data-href="http://hitchhiker-nus.appspot.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></p>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class ="col-md-offset-2">
+			<p class="text">Theme: Flatly from Bootswatch. Modified with Bootstrap Live Customizer</p>
+		  </div>
+		</div>
+    </div> 
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

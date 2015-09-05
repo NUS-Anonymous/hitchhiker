@@ -1,0 +1,215 @@
+<!-- Nav bar template for logged in -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Hitchhiker</title
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap/css/theme.min.css" rel="stylesheet">
+	<style>
+	  .dropdown:hover .dropdown-menu {
+		display: block;
+	  }
+	  .footer {
+		height: 12em;
+		background-color: #F5F5F5;
+	  }
+	</style>
+  </head>
+  
+  <body>
+    <!--facebook share and like button-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1437583166567537";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+    <!--facebook share and like button-->
+	
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" style="font-family: 'Press Start 2P', cursive;">HITCHHIKER</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar">
+		  <ul class="nav navbar-nav">
+			<li><a href="/mainpageuser">Home</a></li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Offers/Requests <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li class="dropdown-header">My Offers</li>
+				<li><a href="/makeoffer">Make New Offer</a></li>
+				<li><a href="/manageoffer">Manage My Offers</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">My Requests</li>
+				<li><a href="/makerequest">Make New Request</a></li>
+				<li><a href="/managerequest">Manage My Requests</a></li>
+			  </ul>
+			</li>
+			<li class="dropdown active">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Received Offers/Requests <span class="caret"></span><span class="sr-only">(current)</span></a>
+			  <ul class="dropdown-menu">
+				<li class="dropdown-header">Received Offers</li>
+				<li><a href="/searchoffer">Search For Others' Offers</a></li>
+				<li><a href="#">Manage Received Offers</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">Received Requests</li>
+				<li><a href="/searchrequest">Search For Others' Requests</a></li>
+				<li><a href="/managereceivedrequest">Manage Received Requests</a></li>
+			  </ul>
+			</li>
+			<li><a href="/aboutus">About Us</a></li>
+			<li><a href="/faq">FAQs</a></li>
+		  </ul>  
+		  <a class="btn btn-danger navbar-right navbar-btn" href="{{ logout }}">Sign Out</a>
+		  <p class="navbar-text navbar-right">&nbsp;</p>
+		  <p class="navbar-text navbar-right">Welcome back, <a href="#" class="navbar-link">{{ user_mail }}</a>!</p>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+  
+	<div class="jumbotron" style="background-image:url(../images/jumbotronbg.jpg)">
+	  <h1 class="text-center" style=" font-family:'Indie Flower', cursive">Your Free Ride is Here!</h1>
+	  <p class="text-center" style="font-family:'Indie Flower', cursive">HitchHiker helps you share rides, make friends and save the environment</p>
+	  <p class="text-center"><a class="btn btn-primary btn-lg" href="/aboutus" role="button">Learn more</a></p>
+	</div>
+	
+	<div class="container-fluid">
+	  <div class="col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation" class="disabled"><a href="#">Received Offers</a></li>
+		  <li role="presentation"><a href="/searchoffer">Search For Others' Offers</a></li>
+		  <li role="presentation"><a href="/managereceivedoffer">Manage Received Offers</a></li>
+		  <li role="presentation" class="disabled"><a href="#">Received Requests</a></li>
+		  <li role="presentation"><a href="/searchrequest">Search For Others' Requests</a></li>
+		  <li role="presentation" class="active"><a href="/managereceivedrequest">Manage Received Requests</a></li>
+		</ul>
+	  </div>
+	  
+	  <div class="col-md-9">
+		<h3 class="text"><strong>Manage Received Requests</strong></h3>
+		<p class="text">You currently have requests for the following offer(s):</p>
+		<table class="table table-bordered table-hover">
+		  <thead>
+		    <tr>
+			  <th class="text-center">Offer No.</th>
+			  <th class="text-center">Date & Time</th>
+			  <th class="text-center">Start Location</th>
+			  <th class="text-center">Destination</th>
+			  <th class="text-center">Remark</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			  {% for offer in offers if offer.requested == "Yes" %}
+				<tr>
+				  <td class="text-center">{{ offer.number }}</td>
+				  <td class="text-center">{{ offer.date.strftime('%d-%m-%Y') }}<br/>{{ offer.time.strftime('%H:%M') }}</td>
+				  <td class="text-center">{{ offer.start_location }}<br/>Singapore {{ offer.start_zipcode }}</td>
+				  <td class="text-center">{{ offer.destination }}<br/>Singapore {{ offer.destination_zipcode }}</td>
+				  <td class="text-center">{{ offer.remark }}
+				</tr>
+			  {% endfor %}
+		  </tbody>
+		</table>
+		<p class="text">The details of received requests are as followed:</p>
+		  <table class="table table-bordered table-hover">
+		  <thead>
+		    <tr>
+			  <th class="text-center">Request Made On</th>
+			  <th class="text-center">Request Date & Time</th>
+			  <th class="text-center">Start Location</th>
+			  <th class="text-center">Destination</th>
+			  <th class="text-center">Remark</th>
+			  <th class="text-center">Contact Details</th>
+			  <th class="text-center">Suggested Route</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{% for request in received_requests %}
+			<tr>
+			  <td class="text-center">{{ (request.requested_datetime + time_adj).strftime('%d-%m-%Y') }}<br/>{{ (request.requested_datetime + time_adj).strftime('%H:%M') }}</td>
+			  <td class="text-center">{{ request.date.strftime('%d-%m-%Y') }}<br/>{{ request.time.strftime('%H:%M') }}</td>
+			  <td class="text-center">{{ request.start_location }}<br/>Singapore {{ request.start_zipcode }}</td>
+			  <td class="text-center">{{ request.destination }}<br/>Singapore {{ request.destination_zipcode }}</td>
+			  <td class="text-center">{{ request.remark }}</td>
+			  <td class="text-center">{{ request.email }}<br/>{{ request.phone }}</td>
+			  <td class="text-center">
+				<form action="/viewrouterequest" method="post">
+					<input type="hidden" name="received_request_number" value="{{ request.number }}">
+					<input type="hidden" name="received_request_for_offer" value = "{{ request.for_offer }}">
+					<input class="btn btn-info btn-sm" type="submit" value="View Route">
+				</form>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+	
+	<br/>
+	<br/>
+	<br/>
+	<div class="footer">
+		<div class="row">
+		  <div class ="col-md-3 col-md-offset-2">
+			<h4>© 2015 HitchHiker</h4>
+			<p class="text"> 
+			  <ul>
+				<li><a href ="/aboutus">About us</a></li>
+				<li><a href = "/http://goo.gl/forms/iyRTZBLDYo">Career</a></li>
+				<li><a href ="/faq">FAQ</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Help</h4>
+			<p> 
+			  <ul>
+				<li><a href="mailto:nl.chuongthien@gmail.com">Contact Us</a></li>
+				<li><a href ="https://www.youtube.com/watch?v=Yb2fLgWxOrk">Guide</a></li>
+				<li><a href="#">Terms of Use</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Follow Us</h4>
+			<p>
+			  <a href= "#"></href><img width="24px" height="24px" src="../images/twitter.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/facebook.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/instagram.png"></a>
+			</p>
+			<p><a class="fb-like" data-href="http://hitchhiker-nus.appspot.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></p>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class ="col-md-offset-2">
+			<p class="text">Theme: Flatly from Bootswatch. Modified with Bootstrap Live Customizer</p>
+		  </div>
+		</div>
+    </div>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

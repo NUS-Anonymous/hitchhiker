@@ -1,0 +1,490 @@
+<!-- Nav bar template for logged in -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Hitchhiker</title
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap/css/theme.min.css" rel="stylesheet">
+	<style>
+	  .dropdown:hover .dropdown-menu {
+      display: block;
+	  }
+	  
+      #map-canvas {
+        height: 300px;
+		width: 420px;
+        margin: 0px;
+        padding: 0px;
+      }
+      .controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+	  
+	  .footer {
+		height: 12em;
+		background-color: #F5F5F5;
+	  }
+    </style>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+	<script>
+		// This example adds a search box to a map, using the Google Place Autocomplete
+		// feature. People can enter geographical searches. The search box will return a
+		// pick list containing a mix of places and predicted search terms.
+
+		function initialize() {
+
+		  var markers = [];
+		  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		  });
+
+		  var defaultBounds = new google.maps.LatLngBounds(
+			  new google.maps.LatLng(1.2850, 103.8500),
+			  new google.maps.LatLng(1.3050, 103.8550));
+		  map.fitBounds(defaultBounds);
+
+		  // Create the search box and link it to the UI element.
+		  var input = /** @type {HTMLInputElement} */(
+			  document.getElementById('pac-input'));
+		  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+		  var searchBox = new google.maps.places.SearchBox(
+			/** @type {HTMLInputElement} */(input));
+
+		  // [START region_getplaces]
+		  // Listen for the event fired when the user selects an item from the
+		  // pick list. Retrieve the matching places for that item.
+		  google.maps.event.addListener(searchBox, 'places_changed', function() {
+			var places = searchBox.getPlaces();
+
+			if (places.length == 0) {
+			  return;
+			}
+			for (var i = 0, marker; marker = markers[i]; i++) {
+			  marker.setMap(null);
+			}
+
+			// For each place, get the icon, place name, and location.
+			markers = [];
+			var bounds = new google.maps.LatLngBounds();
+			for (var i = 0, place; place = places[i]; i++) {
+			  var image = {
+				url: place.icon,
+				size: new google.maps.Size(71, 71),
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(17, 34),
+				scaledSize: new google.maps.Size(25, 25)
+			  };
+
+			  // Create a marker for each place.
+			  var marker = new google.maps.Marker({
+				map: map,
+				icon: image,
+				title: place.name,
+				position: place.geometry.location
+			  });
+
+			  markers.push(marker);
+
+			  bounds.extend(place.geometry.location);
+			}
+
+			map.fitBounds(bounds);
+		  });
+		  // [END region_getplaces]
+
+		  // Bias the SearchBox results towards places that are within the bounds of the
+		  // current map's viewport.
+		  google.maps.event.addListener(map, 'bounds_changed', function() {
+			var bounds = map.getBounds();
+			searchBox.setBounds(bounds);
+		  });
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  
+  <body>
+	<!--facebook share and like button-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1437583166567537";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+    <!--facebook share and like button-->
+	
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" style="font-family: 'Press Start 2P', cursive;">HITCHHIKER</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar">
+		  <ul class="nav navbar-nav">
+			<li><a href="/mainpageuser">Home</a></li>
+			<li class="dropdown active">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Offers/Requests <span class="caret"></span><span class="sr-only">(current)</span></a>
+			  <ul class="dropdown-menu">
+				<li class="dropdown-header">My Offers</li>
+				<li><a href="/makeoffer">Make New Offer</a></li>
+				<li><a href="/manageoffer">Manage My Offers</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">My Requests</li>
+				<li><a href="/makerequest">Make New Request</a></li>
+				<li><a href="/managerequest">Manage My Requests</a></li>
+			  </ul>
+			</li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Received Offers/Requests <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li class="dropdown-header">Received Offers</li>
+				<li><a href="/searchoffer">Search For Others' Offers</a></li>
+				<li><a href="/managereceivedoffer">Manage Received Offers</a></li>
+				<li role="separator" class="divider"></li>
+				<li class="dropdown-header">Received Requests</li>
+				<li><a href="/searchrequest">Search For Others' Requests</a></li>
+				<li><a href="/managereceivedrequest">Manage Received Requests</a></li>
+			  </ul>
+			</li>
+			<li><a href="/aboutus">About Us</a></li>
+			<li><a href="/faq">FAQs</a></li>
+		  </ul>  
+		  <a class="btn btn-danger navbar-right navbar-btn" href="{{ logout }}">Sign Out</a>
+		  <p class="navbar-text navbar-right">&nbsp;</p>
+		  <p class="navbar-text navbar-right">Welcome back, <a href="#" class="navbar-link">{{ user_mail }}</a>!</p>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+  
+	<div class="jumbotron" style="background-image:url(../images/jumbotronbg.jpg)">
+	  <h1 class="text-center" style=" font-family:'Indie Flower', cursive">Your Free Ride is Here!</h1>
+	  <p class="text-center" style="font-family:'Indie Flower', cursive">HitchHiker helps you share rides, make friends and save the environment</p>
+	  <p class="text-center"><a class="btn btn-primary btn-lg" href="/aboutus" role="button">Learn more</a></p>
+	</div>
+	
+	<div class="container-fluid">
+	  <div class="col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+		  <li role="presentation" class="disabled"><a href="#">My Offers</a></li>
+		  <li role="presentation"><a href="/makeoffer">Make New Offer</a></li>
+		  <li role="presentation"><a href="/manageoffer">Manage My Offers</a></li>
+		  <li role="presentation" class="disabled"><a href="#">My Requests</a></li>
+		  <li role="presentation" class="active"><a href="/makerequest">Make New Request</a></li>
+		  <li role="presentation"><a href="/managerequest">Manage My Requests</a></li>
+		</ul>
+	  </div>
+	  
+	  <div class="col-md-9">
+		{% if error is defined %}
+		  <div class="alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{ error }}
+			<span class="sr-only">Error:</span>
+		  </div>	
+		{% endif %}
+		<h3 class="text"><strong>Make New Request</strong></h3>
+		<p class="text"><i>Fields marked with * are compulsory</i></p>
+		<form action="/makerequest" method="post">
+		  <div class="col-md-4">
+			<div class="form-group">
+			  <label for="day">Day*</label>
+			  <select class="form-control" name="day">
+				<option value="01">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="col-md-4">
+			<div class="form-group">
+			  <label for="month">Month*</label>
+			  <select class="form-control" name="month">
+				<option value="01">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="col-md-4">
+			<div class="form-group">
+			  <label for="year">Year*</label>
+			  <select class="form-control" name="year">
+				<option value="2015">2015</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="col-md-6">
+			<div class="form-group">
+			  <label for="hour">Time (HH-MM)*</label>
+			  <select class="form-control" name="hour">
+				<option value="00">00</option>
+				<option value="01">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="col-md-6">
+			<div class="form-group">
+			  <label for="min">&nbsp;</label>
+			  <select class="form-control" name="min">
+				<option value="00">00</option>
+				<option value="01">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+				<option value="32">32</option>
+				<option value="33">33</option>
+				<option value="34">34</option>
+				<option value="35">35</option>
+				<option value="36">36</option>
+				<option value="37">37</option>
+				<option value="38">38</option>
+				<option value="39">39</option>
+				<option value="40">40</option>
+				<option value="41">41</option>
+				<option value="42">42</option>
+				<option value="43">43</option>
+				<option value="44">44</option>
+				<option value="45">45</option>
+				<option value="46">46</option>
+				<option value="47">47</option>
+				<option value="48">48</option>
+				<option value="49">49</option>
+				<option value="50">50</option>
+				<option value="51">51</option>
+				<option value="52">52</option>
+				<option value="53">53</option>
+				<option value="54">54</option>
+				<option value="55">55</option>
+				<option value="56">56</option>
+				<option value="57">57</option>
+				<option value="58">58</option>
+				<option value="59">59</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="col-md-6">
+		    <div class="form-group">
+			  <label for="start_location">Starting Location*</label>
+			  <input type="text" class="form-control" name="start_location" placeholder="Enter Starting Address">
+			</div>
+			<div class="form-group">
+			  <label for="start_zipcode">Zip Code*</label>
+			  <input type="text" class="form-control" name="start_zipcode" placeholder="Enter Zip Code">
+			</div>
+		    <div class="form-group">
+			  <label for="destination">Destination*</label>
+			  <input type="text" class="form-control" name="destination" placeholder="Enter Destination Address">
+		    </div>
+		    <div class="form-group">
+			  <label for="destination_zipcode">Zip Code*</label>
+			  <input type="text" class="form-control" name="destination_zipcode" placeholder="Enter Zip Code">
+			</div>
+		  </div>
+		  <div class="col-md-6">
+			<label>Find your location zip code with Google Maps</label>
+			<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+			<div id="map-canvas"></div>
+		  </div>
+		  <div class="col-md-12">
+			<div class="form-group">
+			  <label for="remark">Remark</label>
+			  <input type="text" class="form-control" name="remark" placeholder="Enter Optional Remark">
+			</div>
+			<input class="btn btn-primary" type="submit" value="Submit">
+		  </div>
+		</form>	
+	  </div>
+	</div>
+	
+		<br/>
+	<br/>
+	<br/>
+	<div class="footer">
+		<div class="row">
+		  <div class ="col-md-3 col-md-offset-2">
+			<h4>© 2015 HitchHiker</h4>
+			<p class="text"> 
+			  <ul>
+				<li><a href ="/aboutus">About us</a></li>
+				<li><a href = "/http://goo.gl/forms/iyRTZBLDYo">Career</a></li>
+				<li><a href ="/faq">FAQ</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Help</h4>
+			<p> 
+			  <ul>
+				<li><a href="mailto:nl.chuongthien@gmail.com">Contact Us</a></li>
+				<li><a href ="https://www.youtube.com/watch?v=Yb2fLgWxOrk">Guide</a></li>
+				<li><a href="#">Terms of Use</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Follow Us</h4>
+			<p>
+			  <a href= "#"></href><img width="24px" height="24px" src="../images/twitter.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/facebook.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/instagram.png"></a>
+			</p>
+			<p><a class="fb-like" data-href="http://hitchhiker-nus.appspot.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></p>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class ="col-md-offset-2">
+			<p class="text">Theme: Flatly from Bootswatch. Modified with Bootstrap Live Customizer</p>
+		  </div>
+		</div>
+    </div>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

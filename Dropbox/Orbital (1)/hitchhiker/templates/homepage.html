@@ -1,0 +1,193 @@
+<!-- Nav bar template for non-logged in -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Hitchhiker</title
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap/css/theme.min.css" rel="stylesheet"> 
+    <style>
+	  .footer {
+		height: 12em;
+		background-color: #F5F5F5;
+	  }
+    </style>
+  </head>
+  
+  <body>
+    <!--facebook share and like button-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1437583166567537";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+    <!--facebook share and like button-->
+      
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" style="font-family: 'Press Start 2P', cursive;">HITCHHIKER</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar">
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+			<li><a href="/aboutus">About Us</a></li>
+			<li><a href="/faq">FAQs</a></li>
+		  </ul>
+		  <form class="navbar-form navbar-right" action="/getopenid" method="post">
+			<div class="form-group">
+                <label for="openid">Login With OpenID <span data-toggle="tooltip" data-placement="bottom" id="explanation" title="OpenID allows you to securely login using one of your available login details. We support login using OpenID for Yahoo, Flickr, AOL, Blogspot, Paypal, etc. If you are an NUS student, please use https://openid.nus.edu.sg and click 'Submit' to log in" class="glyphicon glyphicon-question-sign"></span></label>
+			  <input type="text" class="form-control" id="openid" name="openid" value = "https://openid.nus.edu.sg">
+			</div>
+            <button type="submit" class="btn btn-success">Submit</button>
+		  </form>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+    
+	
+	
+	<div class="jumbotron" style="background-image:url(../images/jumbotronbg.jpg)">
+	  <h1 class="text-center" style=" font-family:'Indie Flower', cursive">Your Free Ride is Here!</h1>
+	  <p class="text-center" style="font-family:'Indie Flower', cursive">HitchHiker helps you share rides, make friends and save the environment</p>
+	  <p class="text-center"><a class="btn btn-primary btn-lg" href="/aboutus" role="button">Learn more</a></p>
+	</div>
+    
+      
+	<center>
+      <h3 class="text-center">WHY HITCHHIKER?</h3>
+      <br/>
+	  <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+		  <button class="btn btn-success btn-lg">
+		    <span style="font-size:5em;" class="glyphicon glyphicon-ok aria-hidden="true"></span>
+			<br/>EASY
+			<br/>TO USE
+		  </button>
+		</div>
+		<div class="col-md-2">
+		  <button class="btn btn-primary btn-lg">
+			<span style="font-size:5em;" class="glyphicon glyphicon-flash aria-hidden="true"></span>
+			<br/>FAST AND
+			<br/>RELIABLE
+		  </button>
+		</div>
+		<div class="col-md-2">
+		  <button class="btn btn-danger btn-lg">
+			<span style="font-size:5em;" class="glyphicon glyphicon-piggy-bank aria-hidden="true"></span>
+			<br/>FREE
+			<br/>OF CHARGE
+		  </button>
+		</div>
+	  </div>
+	  <br/>
+	  <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+		  <button class="btn btn-warning btn-lg">
+			<span style="font-size:5em;" class="glyphicon glyphicon-link aria-hidden="true"></span>
+			<br/>MAKE
+			<br/>FRIENDS
+		  </button>
+		</div>
+		<div class="col-md-2">
+		  <button class="btn btn-info btn-lg">
+			<span style="font-size:5em;" class="glyphicon glyphicon-time aria-hidden="true"></span>
+			<br/>SAVE
+			<br/>TIME
+			
+		  </button>
+		</div>
+		<div class="col-md-2">
+		  <button class="btn btn-success btn-lg">
+			<span style="font-size:5em;" class="glyphicon glyphicon-grain aria-hidden="true"></span>
+			<br/>SAVE THE
+			<br/>ENVIRONMENT
+		  </button>
+		</div>
+	  </div>
+	  <br/>
+	  <br/>
+	  <h3 class="text"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span><br/>GET STARTED</h3>
+	  <form class="form-inline" action="/getopenid" method="post">
+		<div class="form-group">
+		  <label for="openid">Enter Your OpenID <span data-toggle="tooltip" data-placement="bottom" id="explanation2" title="OpenID allows you to securely login using one of your available login details. We support login using OpenID for Yahoo, Flickr, AOL, Blogspot, Paypal, etc. If you are an NUS student, please use https://openid.nus.edu.sg and click 'Submit' to log in" class="glyphicon glyphicon-question-sign"></span></label>
+		  <input type="text" class="form-control" id="openid" name="openid" value = "https://openid.nus.edu.sg">
+		</div>
+		<button type="submit" class="btn btn-success">Log In</button>
+	  </form>
+    </center>
+	
+	<br/>
+	<br/>
+	<br/>
+    <div class="footer">
+		<div class="row">
+		  <div class ="col-md-3 col-md-offset-2">
+			<h4>© 2015 HitchHiker</h4>
+			<p class="text"> 
+			  <ul>
+				<li><a href ="/aboutus">About us</a></li>
+				<li><a href = "/http://goo.gl/forms/iyRTZBLDYo">Career</a></li>
+				<li><a href ="/faq">FAQ</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Help</h4>
+			<p> 
+			  <ul>
+				<li><a href="mailto:nl.chuongthien@gmail.com">Contact Us</a></li>
+				<li><a href ="https://www.youtube.com/watch?v=Yb2fLgWxOrk">Guide</a></li>
+				<li><a href="#">Terms of Use</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Follow Us</h4>
+			<p>
+			  <a href= "#"></href><img width="24px" height="24px" src="../images/twitter.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/facebook.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/instagram.png"></a>
+			</p>
+			<p><a class="fb-like" data-href="http://hitchhiker-nus.appspot.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></p>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class ="col-md-offset-2">
+			<p class="text">Theme: Flatly from Bootswatch. Modified with Bootstrap Live Customizer</p>
+		  </div>
+		</div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+		$('#explanation').tooltip();
+	  });
+	  $(document).ready(function() {
+		$('#explanation2').tooltip();
+	  });
+	</script>
+    
+  </body>
+</html>

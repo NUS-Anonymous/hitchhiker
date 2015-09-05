@@ -1,0 +1,232 @@
+<!-- Nav bar template for non-logged in -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<title>Hitchhiker</title
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap/css/theme.min.css" rel="stylesheet">
+	<style>
+	  .footer {
+		height: 12em;
+		background-color: #F5F5F5;
+	  }
+	</style>
+  </head>
+
+  <body>
+	<!--facebook share and like button-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1437583166567537";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+    <!--facebook share and like button-->
+	
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" style="font-family: 'Press Start 2P', cursive;">HITCHHIKER</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar">
+		  <ul class="nav navbar-nav">
+			<li><a href="/">Home</a></li>
+			<li class="active"><a href="/aboutus">About Us<span class="sr-only">(current)</span></a></li>
+			<li><a href="/faq">FAQs</a></li>
+		  </ul>
+		  <form class="navbar-form navbar-right" action="/getopenid" method="post">
+			<div class="form-group">
+			  <label for="openid">Login With OpenID <span data-toggle="tooltip" data-placement="bottom" id="explanation" title="OpenID allows you to securely login using one of your available login details. We support login using OpenID for Yahoo, Flickr, AOL, Blogspot, Paypal, etc. If you are an NUS student, please use https://openid.nus.edu.sg and click 'Submit' to log in" class="glyphicon glyphicon-question-sign"></span></label>
+			  <input type="text" class="form-control" id="openid" name="openid" value = "https://openid.nus.edu.sg">
+			</div>
+			<button type="submit" class="btn btn-success">Submit</button>
+		  </form>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="jumbotron" style="background-image:url(../images/jumbotronbg.jpg)">
+	  <h1 class="text-center" style=" font-family:'Indie Flower', cursive">Your Free Ride is Here!</h1>
+	  <p class="text-center" style="font-family:'Indie Flower', cursive">HitchHiker helps you share rides, make friends and save the environment</p>
+	  <p class="text-center"><a class="btn btn-primary btn-lg" href="http://goo.gl/forms/iyRTZBLDYo" target="_blank" role="button">Join The Team</a></p>
+	</div>
+	
+	<h1 class="text-center">About Us</h1>
+	<br/>
+	<br/>
+	<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	  <p class="text-justify">
+	    NUS School of Computing’s Orbital Programme is a self-driven programming summer experience for first year students, 
+		which focus on self-learning and building something useful. 
+		For Orbital 2015, Team Anonymous is introducing HitchHiker, a revolutionary way to carpool! 
+		HitchHiker is a user-friendly website for people who wish to carpool in Singapore. 
+		We aim to help travellers get to their destinations with greater ease and drivers cut down on their petrol cost. 
+		On top of that, HitchHiker allows you to make new friends while doing your part to protect the environment by reducing your carbon footprint!
+	  </p>
+	  <br/>
+	  <br/>
+	  <h1 class="text-center">Meet the Team.</h1>
+	  <br/>
+	  <br/>
+	  <table class="fixed">
+		<col width="200px" />
+		<col width="400px" />
+		<tr> 
+		  <td> 
+			<a href="https://sg.linkedin.com/in/nlchuongthien">
+			  <img src="../images/Thien.jpg" alr="MYFACE" style="width:160px;height:160px"> 
+			</a>
+		  </td>
+		  <td bgcolor="#2C3E50"> 
+			<font size="5">
+				Nguyen Luong Chuong Thien.<br/>
+				Cheerful, second year NUS student.<br/>
+				"I love Chocolate!"
+			</font>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			&nbsp;
+			<br/>
+			&nbsp;
+		  </td> 
+		</tr>
+		<tr> 
+		  <td>
+			<a href="#"> 
+			<img src="../images/Uyen.jpg" style="width:160px;height:160px"> 
+			</a>
+		  </td>
+		  <td bgcolor="#2C3E50"> 
+			<font size ="5">
+				Le My Uyen. <br/>
+				Lovely teammate and diligent student.
+			</font>	
+		  </td>
+		</tr>
+	  </table>
+	  
+	  <br/>
+	  <br/>	  
+	  <h1 class="text-center">How Does Hitchhiker Work?</h1>
+	  <br/>
+	  <br/>
+
+	  <p class="text-justify">
+		HitchHiker is a user-friendly website that allows users to take up the role of both the offerer and requester. 
+		After logging in, users are free to create and edit trips, search for trips that they can join and contact other users to plan the trips together. 
+		It does not matter if you are offering a ride or requesting for a ride, HitchHiker has something for you!
+	  </p>
+	  <p class="text-justify">
+		If you are offering a ride, scroll over 'My Offers/Requests' and select 'Make New Offer' from the drop down list. 
+		Enter all necessary details about the ride that you are offering (you can use Google Maps provided to find your location zip code) and submit the form. 
+		Similarly, if you are requesting a ride, choose 'Make New Request' and enter all necessary details before submitting the form.
+	  </p>
+	  <p class="text-justify">
+		After making an offer or request, you can search for other people's request or offer by scrolling over 'Received Offers/Requests' and selecting 'Search For Others' Offers' or 'Search For Others' Requests'. 
+		Enter the date you want to search for and a list of available offers/requests will show up in the search results. 
+		You can then choose the offer/request you want to contact by clicking the 'Contact' button and fill in all necessary details in the form.
+	  </p>
+	  <p class="text-justify">
+		Finally, you can check if you have received any offers/requests for your made requests/offers by scrolling over 'Received Offers/Requests' and selecting 'Manage Received Offers' or 'Manage Received Requests'. 
+		If you have received any offers or requests, you will be able to visualise the route by choosing 'View Route'. 
+		This function helps you decide whether to contact the offerer/requester after seeing the route the offerer will go to pick up and drop off the requester. 
+		If you decide to take up the received offer/request, you can contact the other party through the email or number provided to discuss the details.
+	  </p>
+	  
+	  <br/>
+	  <br/>
+	  
+	  <h1 class="text-center">Get Started Now!</h1>
+	  
+	  <br/>
+	  <br/>
+	  
+	  <div class="col-md-6">
+		<center><a class="btn btn-success" href="#openid" role="button"><font size="5">I am</font>
+		<br/>
+		<font size="6" >Offering A Ride</font>
+		</a></center>
+	  </div>
+	  <div class="col-md-6">
+		<center><a class="btn btn-warning" href="#openid" role="button"><font size="5">I am</font>
+		<br/>
+		<font size="6">Needing A Lift</font>
+		</a></center>
+	  </div>
+	</div>
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+    <div class="footer">
+		<div class="row">
+		  <div class ="col-md-3 col-md-offset-2">
+			<h4>© 2015 HitchHiker</h4>
+			<p class="text"> 
+			  <ul>
+				<li><a href ="/aboutus">About us</a></li>
+				<li><a href = "/http://goo.gl/forms/iyRTZBLDYo">Career</a></li>
+				<li><a href ="/faq">FAQ</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Help</h4>
+			<p> 
+			  <ul>
+				<li><a href="mailto:nl.chuongthien@gmail.com">Contact Us</a></li>
+				<li><a href ="https://www.youtube.com/watch?v=Yb2fLgWxOrk">Guide</a></li>
+				<li><a href="#">Terms of Use</a></li>
+			  </ul>
+			</p>
+		  </div>
+		  <div class="col-md-3">
+			<h4>Follow Us</h4>
+			<p>
+			  <a href= "#"></href><img width="24px" height="24px" src="../images/twitter.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/facebook.png"></a>
+			  <a href= "#"><img width="24px" height="24px" src="../images/instagram.png"></a>
+			</p>
+			<p><a class="fb-like" data-href="http://hitchhiker-nus.appspot.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></a></p>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class ="col-md-offset-2">
+			<p class="text">Theme: Flatly from Bootswatch. Modified with Bootstrap Live Customizer</p>
+		  </div>
+		</div>
+    </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+	  $(document).ready(function() {
+		$('#explanation').tooltip();
+	  });
+	</script>
+  </body>
+</html>

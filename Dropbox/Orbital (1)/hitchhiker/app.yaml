@@ -1,0 +1,39 @@
+application: hitchhiker-nus
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+#- url: /_ah/login_required
+#  script: hitchhiker.app
+
+- url: /images
+  static_dir: images
+  
+- url: /bootstrap
+  static_dir: bootstrap
+
+# Handler for front page
+
+- url: /
+  script: hitchhiker.app
+  
+- url: /aboutus
+  script: hitchhiker.app
+  
+- url: /faq
+  script: hitchhiker.app
+  
+# All other pages require login
+- url: /.*
+  script: hitchhiker.app
+# login: required
+  
+
+libraries:
+- name: jinja2
+  version: latest
+- name: webapp2
+  version: latest
